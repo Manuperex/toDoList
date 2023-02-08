@@ -1,0 +1,1 @@
+export const mediaQueryMobile = window.matchMedia('(max-width: 375px)').matches;

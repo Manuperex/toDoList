@@ -1,0 +1,18 @@
+.title {
+  font-family: "Rowdies";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 60px;
+}
+#list{
+    font-family: 'Mochiy Pop One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+}
+#btn-delete{
+    background-color: #F95738;
+    color: white;
+}

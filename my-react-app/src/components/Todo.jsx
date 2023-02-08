@@ -31,7 +31,7 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
   };
 
   return (
-  <div className="row">
+  <div className="row ">
     {
     isEditing ?
     
@@ -48,21 +48,22 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
      : 
         <>
         <div className="column nine wide" onDoubleClick={handleDivDubleClick}>
-          <h5 className={"ui header" + (completedState ? " green" : "")}>{Value}</h5>
+          <h5 id="list" className={"ui center aligned header " + (completedState ? " green" : "")}>{Value}</h5>
         </div>
   
-        <div className="column three wide ">
+        <div className="column middle aligned tiny three wide">
           <button 
-          className={"ui button circular icon " + (completedState ? " blue": "green")}
+          className={"ui button  circular icon " + (completedState ? " blue": "green")}
           onClick={handleButtonClick}
           >
-            <i className={"white check icon " + ($largestMobileScreen ? " large" : " Massive")}></i>
+            <i className="large check icon"></i>
           </button>
 
         </div>
-        <div className="column three wide">
+        <div className="column middle aligned tiny three wide">
           <button 
-          className="ui button circular icon red"
+          id="btn-delete"
+          className="ui button circular icon"
           onClick={removeTodoItemProp}>
             <i className="large white trash alternate outline icon"></i>
           </button>
