@@ -13,7 +13,7 @@ const list = [
   { title: "test #3", id: 3 },
 ];
 function App() {
-  //hola mundo feature2
+  //hola mundo lola
   const [todoList, setTodoList] = useState(list);
   useEffect(() => {
     //Realiza la peticion a otro servidor de forma asincronica
@@ -28,10 +28,6 @@ function App() {
 
     fetchData();
 }, []);
-
-console.log("hola mundo");
- console.log(setTodoList);
-
 
   const addTodo = (item) => {
     setTodoList((oldlist) => [...oldlist, item]);
