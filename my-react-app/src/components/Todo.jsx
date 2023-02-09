@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { mediaQueryTablet, mediaQuerymobile, mediaQueryDesktop } from "../mediaQuery"
 
 const Todo = ({ title, completed, removeTodoItemProp }) => {
   const [Value, setvalue] = useState(title);
@@ -47,25 +48,24 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
         </div>
      : 
         <>
-        <div className="column nine wide" onDoubleClick={handleDivDubleClick}>
+        <div className={mediaQuerymobile ? "column nine wide" : mediaQueryTablet ? "column seven wide" : mediaQueryDesktop? "column six wide" : "column six wide"} onDoubleClick={handleDivDubleClick}>
           <h5 id="list" className={"ui center aligned header " + (completedState ? " green" : "")}>{Value}</h5>
         </div>
-  
-        <div className="column middle aligned tiny three wide">
+        <div className={mediaQuerymobile ? "column middle aligned tiny three wide": mediaQueryTablet ? "column middle aligned tiny two wide" : mediaQueryDesktop? "column middle aligned tiny three wide" : "column middle aligned tiny two wide"}>
           <button 
-          className={"ui button  circular icon " + (completedState ? " blue": "green")}
+          className={(mediaQuerymobile ? "ui large button  circular icon " : mediaQueryTablet ? "ui big button  circular icon " : "ui huge button  circular icon ") + (completedState ? " blue": "green")}
           onClick={handleButtonClick}
           >
-            <i className="large check icon"></i>
+            <i className={mediaQuerymobile ? "large check icon" : mediaQueryTablet ? "big check icon" : "huge check icon"}></i>
           </button>
 
         </div>
-        <div className="column middle aligned tiny three wide">
+        <div className={mediaQuerymobile ? "column middle aligned tiny three wide" : mediaQueryTablet ? "column middle aligned tiny two wide" : mediaQueryDesktop? "column middle aligned tiny three wide" : "column middle aligned tiny two wide"}>
           <button 
           id="btn-delete"
-          className="ui button circular icon"
+          className={mediaQuerymobile ? "ui large button circular icon" : mediaQueryTablet ? "ui big button circular icon" : "ui huge button circular icon"}
           onClick={removeTodoItemProp}>
-            <i className="large white trash alternate outline icon"></i>
+            <i className={mediaQuerymobile ? "large white trash alternate outline icon" : mediaQueryTablet ? "big white trash alternate outline icon" : "huge white trash alternate outline icon"}></i>
           </button>
         </div>
         </>

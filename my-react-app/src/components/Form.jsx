@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { mediaQueryTablet, mediaQuerymobile, mediaQueryDesktop } from "../mediaQuery"
 
 const Form = ({ addTodo }) => {
     const [inputValue, setInputValue] = useState("");
@@ -21,7 +22,7 @@ const Form = ({ addTodo }) => {
     <form className="ui form" onSubmit={handleFormSubmit}>
       <div className="ui grid center aligned">
         <div className="row">
-          <div className="column eight wide">
+          <div className={mediaQuerymobile ? "column middle aligned eight wide" : mediaQueryTablet ? "column middle aligned nine wide" : mediaQueryDesktop? "column middle aligned nine wide" : "column middle aligned nine wide"}>
             <input
               value={inputValue}
               onChange={handleInputChange}
@@ -29,9 +30,9 @@ const Form = ({ addTodo }) => {
               placeholder="Enter something to do..."
             />
           </div>
-          <div className="column two wide ">
-            <button type="submit" className="ui button circular icon green">
-              <i className="white plus square icon"></i>
+          <div className="column middle aligned two wide ">
+            <button id="btn-input" type="submit" className={mediaQuerymobile ? "ui large button circular icon" : "ui huge button circular icon"}>
+              <i className={mediaQuerymobile ? "large white plus square outline icon" : mediaQueryTablet ? "big white plus square outline icon" : "huge white plus square outline icon"}></i>
             </button>
           </div>
         </div>
