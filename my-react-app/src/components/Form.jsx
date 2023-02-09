@@ -7,7 +7,6 @@ const Form = ({ addTodo }) => {
     const [id, setID] = useState()
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-        setID (Math.floor(Math.random() * 99))
     };
 
     const handleFormSubmit = (e) => {
