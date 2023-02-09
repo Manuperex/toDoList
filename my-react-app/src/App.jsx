@@ -13,7 +13,7 @@ const list = [
   { title: "test #3", id: 3 },
 ];
 function App() {
-  //hola mundo Rueh
+  //hola mundo lola
   const [todoList, setTodoList] = useState(list);
 
   const addTodo = (item) => {
