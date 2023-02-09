@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css"
 
 import Form from "./components/Form";
@@ -13,8 +13,25 @@ const list = [
   { title: "test #3", id: 3 },
 ];
 function App() {
-  //hola mundo Rueh
+  //hola mundo feature2
   const [todoList, setTodoList] = useState(list);
+  useEffect(() => {
+    //Realiza la peticion a otro servidor de forma asincronica
+    async function fetchData() {
+      
+        // const response = await fetch('https://backend-todolistdos.onrender.com/todos');
+        const response = await fetch('https://backend-todolistdos.onrender.com/todos');
+        const data = await response.json(); //Convierte la respuesta en un archivo json
+        setTodoList(data);
+        // console.log(data[0]._id);
+    }
+
+    fetchData();
+}, []);
+
+console.log("hola mundo");
+ console.log(setTodoList);
+
 
   const addTodo = (item) => {
     setTodoList((oldlist) => [...oldlist, item]);
