@@ -7,11 +7,8 @@ import List from "./components/List";
 
 const appTitle = "Lista de Pendientes";
 
-const list = [
-  { title: "test #1", completed: false, _id: 1 },
-  { title: "test #2", _id: 2 },
-  { title: "test #3", _id: 3 },
-];
+const list = [];
+
 function App() {
   //hola mundo lola
   const [todoList, setTodoList] = useState(list);
@@ -42,7 +39,7 @@ function App() {
       headers: {'Content-Type': 'application/json'},
       body: body
     };
-    console.log(requestInit);
+    
     async function fetchData() {
       // const response = await fetch('https://backend-todolistdos.onrender.com/todos');
       const response = await fetch(
@@ -50,7 +47,7 @@ function App() {
         requestInit
       );
       const data = await response.json(); //Convierte la respuesta en un archivo json
-      console.log(data);
+      
       // console.log(data[0]._id);
     }
     fetchData()
