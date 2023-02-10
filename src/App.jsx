@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-
-
+import "./App.css"
+import Footer from "./components/Footer"
 import Form from "./components/Form";
 import Section from "./components/Section";
 import List from "./components/List";
-import Footer from "./components/Footer"
 
 const appTitle = "Lista de Pendientes";
 
 const list = [
-  { title: "test #1", completed: false, id: 1 },
-  { title: "test #2", id: 2 },
-  { title: "test #3", id: 3 },
+  { title: "test #1", completed: false, _id: 1 },
+  { title: "test #2", _id: 2 },
+  { title: "test #3", _id: 3 },
 ];
 function App() {
   //hola mundo lola
@@ -35,9 +34,29 @@ function App() {
   };
 
   const removeTodo = (id) => {
+    let salida={"id": id }
+    const  body= JSON.stringify(salida);
+
+    const requestInit = {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+      body: body
+    };
+    console.log(requestInit);
+    async function fetchData() {
+      // const response = await fetch('https://backend-todolistdos.onrender.com/todos');
+      const response = await fetch(
+        "https://backend-todolistdos.onrender.com/todos/remove",
+        requestInit
+      );
+      const data = await response.json(); //Convierte la respuesta en un archivo json
+      console.log(data);
+      // console.log(data[0]._id);
+    }
+    fetchData()
     setTodoList((oldlist) =>
       oldlist.filter((item) => {
-        return item.id !== id;
+        return item._id !== id;
       })
     );
   };
