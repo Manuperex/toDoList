@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Form from "./components/Form";
 import Section from "./components/Section";
 import List from "./components/List";
+import Footer from "./components/Footer"
 
 const appTitle = "Lista de Pendientes";
 
@@ -41,8 +42,9 @@ function App() {
     );
   };
   return (
-    <div className="ui container center aligned fluid">
-      <Section>
+    <div className="container-init">
+      <div className="ui container center aligned fluid" id="container-all">
+         <Section>
           <h1 className="title">
             {appTitle}
           </h1>
@@ -56,6 +58,8 @@ function App() {
       <Section>
         <List list={todoList} removeTodoListProp={removeTodo} />
       </Section>
+      </div>
+        <Footer />
     </div>
   );
 }

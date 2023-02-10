@@ -7,10 +7,6 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
   const [tempValue, setTempValue] = useState(title);
   const [completedState, setCompleted] = useState(completed)
 
-
-  const handleDivDubleClick = () => {
-    setIsEditing(true);
-  };
   const handleInputKeyDown = (e) => {
     const key = e.keycode;
 
@@ -48,7 +44,7 @@ const Todo = ({ title, completed, removeTodoItemProp }) => {
         </div>
      : 
         <>
-        <div className={mediaQuerymobile ? "column nine wide" : mediaQueryTablet ? "column seven wide" : mediaQueryDesktop? "column six wide" : "column six wide"} onDoubleClick={handleDivDubleClick}>
+        <div className={mediaQuerymobile ? "column nine wide" : mediaQueryTablet ? "column seven wide" : mediaQueryDesktop? "column six wide" : "column six wide"}>
           <h5 id="list" className={"ui center aligned header " + (completedState ? " green" : "")}>{Value}</h5>
         </div>
         <div className={mediaQuerymobile ? "column middle aligned tiny three wide": mediaQueryTablet ? "column middle aligned tiny two wide" : mediaQueryDesktop? "column middle aligned tiny three wide" : "column middle aligned tiny two wide"}>
